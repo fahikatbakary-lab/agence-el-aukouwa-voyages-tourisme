@@ -87,10 +87,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => handleNav('accueil')}
             className="flex items-center gap-3 text-left group focus:outline-none"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 border-2 border-[#C9A227] rotate-45 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform bg-[#0B1F3A]">
-              <span className="-rotate-45 font-serif-title text-[#C9A227] text-lg sm:text-xl font-bold">
-                A
-              </span>
+            <div className="w-9 h-9 sm:w-10 sm:h-10 border-2 border-[#C9A227] rounded-full overflow-hidden flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform bg-[#0B1F3A]">
+              <img src="/logo.jpeg" alt="El Aukouwa Logo" className="w-full h-full object-cover" />
             </div>
             <div className="pl-1">
               <span className="font-serif-title text-base sm:text-lg font-bold text-[#0B1F3A] tracking-widest block leading-none uppercase">
