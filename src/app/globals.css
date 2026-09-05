@@ -1,0 +1,750 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+@import "tailwindcss";
+
+/* ============================================================
+   EL AUKOUWA VOYAGES & TOURISME — DESIGN SYSTEM
+   Palette: Bleu Nuit (#0B2A4A) + Or (#D4A83F)
+   ============================================================ */
+
+:root {
+  /* ——— Couleurs principales ——— */
+  --blue-night: #0B2A4A;
+  --blue-night-dark: #071d33;
+  --blue-night-light: #0f3660;
+  --gold: #D4A83F;
+  --gold-dark: #b8902f;
+  --gold-light: #F1D27A;
+  --gold-pale: #fdf6e3;
+
+  /* ——— Couleurs secondaires ——— */
+  --blue-mid: #2E82B7;
+  --blue-light: #63B5D8;
+  --blue-pale: #e8f4fb;
+
+  /* ——— Neutres ——— */
+  --white: #FFFFFF;
+  --bg-light: #F8FAFC;
+  --bg-section: #f1f5f9;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+
+  /* ——— Typographie ——— */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  /* ——— Espacement & Radius ——— */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  /* ——— Ombres ——— */
+  --shadow-sm: 0 1px 3px rgba(11, 42, 74, 0.08), 0 1px 2px rgba(11, 42, 74, 0.06);
+  --shadow-md: 0 4px 16px rgba(11, 42, 74, 0.12), 0 2px 8px rgba(11, 42, 74, 0.08);
+  --shadow-lg: 0 10px 40px rgba(11, 42, 74, 0.16), 0 4px 16px rgba(11, 42, 74, 0.10);
+  --shadow-xl: 0 20px 60px rgba(11, 42, 74, 0.20), 0 8px 24px rgba(11, 42, 74, 0.12);
+  --shadow-gold: 0 4px 20px rgba(212, 168, 63, 0.30);
+  --shadow-gold-lg: 0 8px 40px rgba(212, 168, 63, 0.40);
+}
+
+@theme inline {
+  --color-blue-night: var(--blue-night);
+  --color-blue-night-dark: var(--blue-night-dark);
+  --color-blue-night-light: var(--blue-night-light);
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-gold-light: var(--gold-light);
+  --color-gold-pale: var(--gold-pale);
+  --color-blue-mid: var(--blue-mid);
+  --color-blue-light: var(--blue-light);
+  --color-blue-pale: var(--blue-pale);
+  --color-bg-light: var(--bg-light);
+  --color-bg-section: var(--bg-section);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+}
+
+/* ——— Reset & Base ——— */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--white);
+  color: var(--gray-800);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ——— Scrollbar personnalisée ——— */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: var(--radius-full);
+}
+
+/* ——— Sélection ——— */
+::selection {
+  background: var(--gold-light);
+  color: var(--blue-night);
+}
+
+/* ——— Animations globales ——— */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulse-gold {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 168, 63, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(212, 168, 63, 0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ——— Classes utilitaires ——— */
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite;
+}
+
+/* ——— Gradient or ——— */
+.gradient-gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+  background-size: 200% auto;
+}
+
+.gradient-gold-text {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, var(--blue-night), var(--blue-mid));
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg,
+      rgba(11, 42, 74, 0.95) 0%,
+      rgba(11, 42, 74, 0.75) 50%,
+      rgba(11, 42, 74, 0.50) 100%);
+}
+
+/* ——— Typographie ——— */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--blue-night);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--blue-night);
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--gray-500);
+  line-height: 1.75;
+}
+
+.gold-line {
+  display: inline-block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+   BOUTONS — Espacement, Tailles, Hover
+   ============================================================ */
+
+/* Bouton principal (or) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.875rem 2.25rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-gold);
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 48px;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(212, 168, 63, 0.45);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-gold);
+}
+
+/* Bouton secondaire (transparent sur fond sombre) */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.875rem 2.25rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  border-radius: var(--radius-full);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  min-height: 48px;
+  letter-spacing: 0.01em;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.12);
+}
+
+.btn-secondary:active {
+  transform: translateY(-1px);
+}
+
+/* Bouton outline (contour or) */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--gold);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 44px;
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-outline:active {
+  transform: translateY(-1px);
+}
+
+/* Bouton dark (fond bleu nuit) */
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.875rem 2.25rem;
+  background: var(--blue-night);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 48px;
+}
+
+.btn-dark:hover {
+  background: var(--blue-night-light);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(11, 42, 74, 0.3);
+}
+
+.btn-dark:active {
+  transform: translateY(-1px);
+}
+
+/* ——— Groupe de boutons ——— */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* ============================================================
+   CARDS — Amélioration
+   ============================================================ */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-gold-border {
+  border: 1px solid rgba(212, 168, 63, 0.18);
+}
+
+.card-gold-border:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(212, 168, 63, 0.15);
+}
+
+/* ============================================================
+   SECTIONS — Espacement généreux
+   ============================================================ */
+.section-padding {
+  padding: 7.5rem 0;
+}
+
+.section-padding-lg {
+  padding: 10rem 0;
+}
+
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ——— Badge ——— */
+.badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(212, 168, 63, 0.10);
+  color: var(--gold-dark);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(212, 168, 63, 0.22);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.badge-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(11, 42, 74, 0.06);
+  color: var(--blue-night);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(11, 42, 74, 0.12);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ——— Forms ——— */
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  color: var(--gray-800);
+  background: var(--white);
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 168, 63, 0.12);
+}
+
+.form-input::placeholder {
+  color: var(--gray-400);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.5rem;
+}
+
+/* ——— Navbar ——— */
+.navbar-scrolled {
+  background: rgba(11, 42, 74, 0.97) !important;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(11, 42, 74, 0.25);
+}
+
+/* ——— Overlay ——— */
+.overlay-dark {
+  background: linear-gradient(to right,
+      rgba(11, 42, 74, 0.92) 0%,
+      rgba(11, 42, 74, 0.70) 60%,
+      rgba(11, 42, 74, 0.30) 100%);
+}
+
+/* ——— Divider ——— */
+.divider-gold {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: var(--radius-full);
+  margin: 1rem auto;
+}
+
+/* ——— WhatsApp Button ——— */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 62px;
+  height: 62px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.40);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.55);
+}
+
+/* ——— Stat Cards ——— */
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* ——— Admin Sidebar ——— */
+.admin-sidebar {
+  background: var(--blue-night);
+  min-height: 100vh;
+  width: 260px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 4px 0 20px rgba(11, 42, 74, 0.25);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 5rem 0;
+  }
+
+  .section-padding-lg {
+    padding: 6.5rem 0;
+  }
+
+  .container-custom {
+    padding: 0 1.5rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline,
+  .btn-dark {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-group {
+    gap: 0.75rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+  }
+
+  .whatsapp-btn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 54px;
+    height: 54px;
+  }
+}
+
+/* Mobile small (480px and below) */
+@media (max-width: 480px) {
+  .section-padding {
+    padding: 3.75rem 0;
+  }
+
+  .section-padding-lg {
+    padding: 5rem 0;
+  }
+
+  .container-custom {
+    padding: 0 1.25rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline,
+  .btn-dark {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn-group .btn-primary,
+  .btn-group .btn-secondary,
+  .btn-group .btn-outline,
+  .btn-group .btn-dark {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: clamp(1.35rem, 6vw, 1.75rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .whatsapp-btn {
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .badge-gold,
+  .badge-blue {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.85rem;
+  }
+}
+
+/* ——— Loading skeleton ——— */
+.skeleton {
+  background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-100) 50%, var(--gray-200) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ——— Toast ——— */
+.toast-container {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ——— Step indicator ——— */
+.step-line::after {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  left: calc(50% + 2rem);
+  width: calc(100% - 4rem);
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  opacity: 0.4;
+}
