@@ -1,0 +1,6 @@
+{
+  "name": "Agence El Aukouwa Voyages & Tourisme",
+  "description": "Site web officiel de l'Agence El Aukouwa Voyages & Tourisme, spécialisée dans l'organisation de la Oumra, les séjours en Arabie Saoudite et les voyages internationaux pour les pèlerins et voyageurs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
